@@ -12,7 +12,7 @@ Feature: Account Management
 
     Examples:
       | FirstName | LastName | Email              | Password | ConfirmPassword |
-      | John      | Doe      | Johndoe2@yahoo.com | John1234 | John1234        |
+      | John      | Doe      | Johndoe@yahoo.com | John1234 | John1234        |
 
   @DuplicateAccount
   Scenario Outline: Duplicate account creation not allowed
@@ -25,7 +25,7 @@ Feature: Account Management
 
     Examples:
       | FirstName | LastName | Email              | Password | ConfirmPassword |
-      | John      | Doe      | Johndoe2@yahoo.com | John1234 | John1234        |
+      | John      | Doe      | Johndoe@yahoo.com | John1234 | John1234        |
 
 
   @RegisteredCustomer
@@ -39,7 +39,7 @@ Feature: Account Management
 
     Examples:
       | FirstName | LastName | Email              | Password | ConfirmPassword |
-      | John      | Doe      | Johndoe2@yahoo.com | John1234 | John1234        |
+      | John      | Doe      | Johndoe@yahoo.com | John1234 | John1234        |
 
     @UnregisteredCustomer
     Scenario Outline: Unregistered customer to see error if attempting to login

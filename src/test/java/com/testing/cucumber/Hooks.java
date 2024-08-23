@@ -25,8 +25,8 @@ public class Hooks {
 
     @After
     public void afterScenario(){
-        //driver.close();
-        //driver.quit();
+        driver.close();
+        driver.quit();
 
 
     }
