@@ -53,3 +53,19 @@ Feature: Account Management
       Examples:
         | Email               | Password  |
         | Daviddean1@yahoo.com | David1234 |
+
+  @AccountLock
+  Scenario Outline: Account to be locked after maximum of 5 attempts
+
+   //call the create an account action already created here to avoid repetition
+    Given I am on sign in page
+    And I enter "<Email>" "<Password>"
+    And I click on sign in
+    When I repeat entering "<Email>" "<Password>" and Click Sign in four more times
+    Then Account should be locked with an error message displayed
+
+    Examples:
+      | Email                | Password  |
+      | Daviddean1@yahoo.com | David1234 |
+
+

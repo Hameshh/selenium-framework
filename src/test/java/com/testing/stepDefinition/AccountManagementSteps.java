@@ -11,6 +11,8 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
+import static com.testing.pageObject.SignInPagePO.*;
+
 public class AccountManagementSteps {
     WebDriver driver = Hooks.driver;
     @Given("I am on create an account page")
@@ -74,6 +76,33 @@ public class AccountManagementSteps {
         String ExpectedResult = "Customer Login";
         String ActualResult = driver.getTitle();
         Assert.assertEquals(ExpectedResult, ActualResult);
+    }
+
+    @When("I repeat entering {string} {string} and Click Sign in four more times")
+    public void iRepeatEnteringAndClickOnSignInButtonFourMoreTimes (String Email, String Password) {
+        for (int i = 0; i < 5; i++) {
+    }
+            SignInPagePO signInPagePO = new SignInPagePO(driver);
+            signInPagePO.enterEmail(Email);
+            signInPagePO.enterPassword(Password);
+            signInPagePO.clickSignInButton();
+
+            //clear fields before entering new data
+        EmailField.clear();
+        PasswordField.clear();
+
+        EmailField.sendKeys(Email);
+        PasswordField.sendKeys(Password);
+        SignInButton.click();
+
+    }
+
+    @Then("Account should be locked with an error message displayed")
+    public void accountShouldBeLockedWithAnErrorMessageDisplayed() {
+        String ExpectedResult = "Account Locked";
+        String ActualResult = driver.getTitle();
+        Assert.assertEquals(ExpectedResult, ActualResult);
+
     }
 
 }
