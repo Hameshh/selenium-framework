@@ -15,6 +15,7 @@ import static com.testing.pageObject.SignInPagePO.*;
 
 public class AccountManagementSteps {
     WebDriver driver = Hooks.driver;
+
     @Given("I am on create an account page")
     public void iAmOnCreateAnAccountPage() {
         HomePagePO homePagePO = new HomePagePO(driver);
@@ -81,19 +82,20 @@ public class AccountManagementSteps {
     @When("I repeat entering {string} {string} and Click Sign in four more times")
     public void iRepeatEnteringAndClickOnSignInButtonFourMoreTimes (String Email, String Password) {
         for (int i = 0; i < 5; i++) {
-    }
+
             SignInPagePO signInPagePO = new SignInPagePO(driver);
             signInPagePO.enterEmail(Email);
             signInPagePO.enterPassword(Password);
             signInPagePO.clickSignInButton();
 
             //clear fields before entering new data
-        EmailField.clear();
-        PasswordField.clear();
+            EmailField.clear();
+            PasswordField.clear();
 
-        EmailField.sendKeys(Email);
-        PasswordField.sendKeys(Password);
-        SignInButton.click();
+            EmailField.sendKeys(Email);
+            PasswordField.sendKeys(Password);
+            SignInButton.click();
+        }
 
     }
 
@@ -105,4 +107,60 @@ public class AccountManagementSteps {
 
     }
 
+
+    @And("On my account page I click on What's New tab")
+    public void onMyAccountPageIClickOnWhatSNewTab() {
+    }
+
+    @And("I click on product link Echo compression Fit short")
+    public void iClickOnProductLinkEchoCompressionFitShort() {
+    }
+
+    @And("I click on product Size {int}")
+    public void iClickOnProductSize(int arg0) {
+    }
+
+    @And("I click on colour black")
+    public void iClickOnColourBlack() {
+    }
+
+    @And("I click on Add to cart button")
+    public void iClickOnAddToCartButton() {
+    }
+
+    @And("I click on the cart icon")
+    public void iClickOnTheCartIcon() {
+    }
+
+    @And("I click on the Proceed to checkout button")
+    public void iClickOnTheProceedToCheckoutButton() {
+    }
+
+    @And("On Checkout Page I enter {string} {string} {string} {string}")
+    public void onCheckoutPageIEnter(String arg0, String arg1, String arg2, String arg3) {
+    }
+
+    @And("I pick Flat rate")
+    public void iPickFlatRate() {
+    }
+
+    @And("I click on Next Button")
+    public void iClickOnNextButton() {
+    }
+
+    @When("I click on Place Order Button")
+    public void iClickOnPlaceOrderButton() {
+    }
+
+    @And("I click on My Account from profile drop down menu")
+    public void iClickOnMyAccountFromProfileDropDownMenu() {
+    }
+
+    @And("I click on My Orders")
+    public void iClickOnMyOrders() {
+    }
+
+    @Then("Order History should be displayed")
+    public void orderHistoryShouldBeDisplayed() {
+    }
 }
